@@ -23,14 +23,14 @@ export default {
             </button>
             <div class="waves-container">               
                 <div class="media-container">
-                    <img class="left-person" src="../assets/images/home-6-hero-left-person-244x300.png" alt="">
+                    <img class="left-person" src="/public/images/home-6-hero-left-person-244x300.png" alt="">
                     <div class="video-container">
                         <div class="poster">
-                            <img src="../assets/images/home-6-hero-poster-final.jpg" alt="">
+                            <img src="/public/images/home-6-hero-poster-final.jpg" alt="">
                         </div>
-                        <img class="youtube-img" src="../assets/images/icon-youtube-play.png" alt="">
+                        <img class="youtube-img" src="/public/images/icon-youtube-play.png" alt="">
                     </div>
-                    <img class="right-person" src="../assets/images/home-6-hero-right-person-195x300.png" alt="">
+                    <img class="right-person" src="/public/images/home-6-hero-right-person-195x300.png" alt="">
                 </div>
             </div>
         </div>
@@ -65,7 +65,7 @@ export default {
             }
             .waves-container {  
                 width: 100%;
-                background-image: url(../assets/images/jumbotron-background-wave-big.svg), url(../assets/images/jumbotron-background-wave-bmediumig.svg), url(../assets/images/jumbotron-background-wave-small.svg);
+                background-image: url(/public/images/jumbotron-background-wave-big.svg), url(/public/images/jumbotron-background-wave-bmediumig.svg), url(/public/images/jumbotron-background-wave-small.svg);
                 background-size: cover;
                 .media-container {
                     width: 80%;

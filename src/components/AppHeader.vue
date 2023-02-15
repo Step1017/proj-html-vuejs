@@ -100,7 +100,7 @@ export default {
     <div class="header-container">
         <div class="row">
             <div class="logo">
-                <img src="../assets/images/light-logo.png" alt="MaxCoachLogo">
+                <img src="../public/images/light-logo.png" alt="MaxCoachLogo">
             </div>
             <div class="navbar">
                 <ul class="nav-list">
