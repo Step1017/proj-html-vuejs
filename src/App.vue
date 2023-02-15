@@ -19,6 +19,7 @@ export default {
   <AppHeader></AppHeader>
   <AppJumbotron></AppJumbotron>
   <AppMain></AppMain>
+  <AppFooter></AppFooter>
 </template>
 
 <style lang="scss">
