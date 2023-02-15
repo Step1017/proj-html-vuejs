@@ -38,7 +38,7 @@ export default {
 </template>
 
 <style lang="scss" scoped>
-    .jumbo-container {
+    .jumbo-container {        
         background-color: #3f3a64;
         color: #ffffff;
         .jumbotron {
@@ -65,7 +65,7 @@ export default {
             }
             .waves-container {  
                 width: 100%;
-                background-image: url(../assets/images/jumbotron-background-wave-big.svg), url(../assets/images/jumbotron-background-wave-medium.svg), url(../assets/images/jumbotron-background-wave-small.svg);
+                background-image: url(../assets/images/jumbotron-background-wave-big.svg), url(../assets/images/jumbotron-background-wave-bmediumig.svg), url(../assets/images/jumbotron-background-wave-small.svg);
                 background-size: cover;
                 .media-container {
                     width: 80%;

@@ -26,7 +26,7 @@ export default {
                 "Photography",
                 "Personal Finance",
                 "Sales Coaching",
-                "Mental Teraphy"
+                "Mental Therapy"
             ]
         },
         {

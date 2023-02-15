@@ -16,12 +16,9 @@ export default {
 </script>
 
 <template>
-  <AppHeader>
-
-  </AppHeader>
-  <AppJumbotron>
-
-  </AppJumbotron>
+  <AppHeader></AppHeader>
+  <AppJumbotron></AppJumbotron>
+  <AppMain></AppMain>
 </template>
 
 <style lang="scss">
