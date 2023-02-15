@@ -5,6 +5,7 @@
     import AppFourthSection from './Sections/AppFourthSection.vue'
     import AppFifthSection from './Sections/AppFifthSection.vue'
     import AppSixthSection from './Sections/AppSixthSection.vue'
+    import AppSeventhSection from './Sections/AppSeventhSection.vue'
     export default {
         components:{
             AppFirstSection,
@@ -12,7 +13,8 @@
             AppThirdSection,
             AppFourthSection,
             AppFifthSection,
-            AppSixthSection
+            AppSixthSection,
+            AppSeventhSection
         }
     }
 </script>
@@ -24,6 +26,7 @@
         <AppFourthSection></AppFourthSection>
         <AppFifthSection></AppFifthSection>
         <AppSixthSection></AppSixthSection>
+        <AppSeventhSection></AppSeventhSection>
     </div>
 </template>
 
