@@ -99,10 +99,12 @@ export default {
 <style lang="scss" scoped>
     .main-container {
         text-align: center;
+        margin-top: 100px;
     }
     .intro {
         font-size: small;
         color: rgb(139, 139, 139);
+        margin-bottom: 20px;
     }
     h2 {
         font-size: 40px;
@@ -113,7 +115,8 @@ export default {
         }
     }
     button {
-        margin-top: 50px;
+        margin-top: 40px;
+        margin-bottom: 50px;
         padding: 15px 30px;
         color: white;
         font-weight: bold;

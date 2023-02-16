@@ -70,6 +70,7 @@
         margin: 0 auto;
         display: flex;
         justify-content: space-around;
+        margin-top: 100px;
         .cards-container {
             width: 50%;
             display: flex;

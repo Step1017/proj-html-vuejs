@@ -20,11 +20,12 @@
     <style lang="scss" scoped>
     .main-container {
         text-align: center;
+        margin-top: 100px;
         h3 {
             font-size: 20px;
             span {
                 font-weight: lighter;
-                color: rgb(66, 218, 197);
+                color: #42dac5;
             }
         }
         h2 {

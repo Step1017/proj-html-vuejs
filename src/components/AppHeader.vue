@@ -7,6 +7,7 @@ export default {
             HeaderList: [
         {
             title: "Home",
+            url:"https://maxcoach.thememove.com/",
             List: [
                 "MaxCoach Education",
                 "Course Portal",
@@ -31,6 +32,7 @@ export default {
         },
         {
             title: "Pages",
+            url:"https://maxcoach.thememove.com/",
             List: [
                 "Start Here",
                 "Success Story",
@@ -47,6 +49,7 @@ export default {
         },
         {
             title: "Courses",
+            url:"https://maxcoach.thememove.com/main/courses/",
             List: [
                 "Courses Grid 01",
                 "Courses Grid 02",
@@ -60,6 +63,7 @@ export default {
         },
         {
             title: "Features",
+            url:"https://maxcoach.thememove.com/main/courses/",
             List: [
                 "Events",
                 "Zoom Meetings"
@@ -67,6 +71,7 @@ export default {
         },
         {
             title: "Blog",
+            url:"https://maxcoach.thememove.com/main/blog/",
             List: [
                 "Blog Grid",
                 "Blog Masonary",
@@ -76,6 +81,7 @@ export default {
         },
         {
             title: "Shop",
+            url:"https://maxcoach.thememove.com/main/shop/",
             List: [
                 "Shop Left Sidebar",
                 "Shop Right Sidebar",
@@ -106,10 +112,10 @@ export default {
                 <ul class="nav-list">
                     <li v-for="(name, index) in this.HeaderList" class="nav-item">                        
                         <div class="option">
-                        {{ name.title }} V
+                            <a :href="name.url">{{ name.title }} V</a>
                         </div>                    
-                        <ul>
-                            <li v-for="(item, num) in name.List"> {{ item }} </li>
+                        <ul :class="(name.List.length > 15) ? 'split-ul-15' : (name.List.length > 7) ? 'split-ul-10' : ''">
+                            <li v-for="(item, num) in name.List" :class="(name.List.length > 7) ? 'split-li-15' : ''">{{ item }}</li>
                         </ul>
                     </li>
                     <div class="icon">I-Carr</div>
@@ -146,10 +152,30 @@ export default {
                 list-style-type: none;
                 .nav-item {
                     position: relative;
+                        a {
+                        text-decoration: none;
+                        color: white;
+                        }
                     &:hover ul {
                         top: 20px;
                         opacity: 1;
                     }
+                }
+                .split-ul-15 {
+                    width: 450px;
+                    height: 350px;
+                    display: flex;
+                    flex-direction: column;
+                    flex-wrap: wrap;
+                    right: -150%;
+                }
+                .split-ul-10{
+                    width: 450px;
+                    height: 200px;
+                    display: flex;
+                    flex-direction: column;
+                    flex-wrap: wrap;
+                    right: -150%;
                 }
 
                 ul {
@@ -157,18 +183,22 @@ export default {
                     position: absolute;
                     right: -25%;
                     top: 30px;
-                    color: black;
-                    background-size: cover;
+                    color: #000000;
                     opacity: 0;
-                    max-height: 250px;
                     transition: all 0.5s;
-                    display: flex;
-                    flex-direction: column;
-                    flex-wrap: wrap;
+                    z-index: 2;
+                    background-color: #ffffff;
+                    border-radius: 15px;
+                    .split-li-15 {
+                        width: 150px;
+                        height: 50px;
+                    }
+
                     
                     li {
                         padding: 5px;
-                        background-color: white;
+                        width: 100px;
+                        height: 50px;
                     }
                 }
             }

@@ -60,6 +60,7 @@ export default {
     .main-container {
         width: 80%;
         margin: 0 auto;
+        margin-top: 100px;
         .title {
             text-align: center;
         }
@@ -78,6 +79,7 @@ export default {
         .cards {
             display: flex;
             justify-content: space-between;
+            margin-top: 50px;
             .card {
                 width: calc(90% / 3);
                 img {

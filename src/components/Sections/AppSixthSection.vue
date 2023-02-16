@@ -53,11 +53,11 @@
     .main-container {
         width: 80%;
         margin: 0 auto;
-        margin-top: 50px;
+        margin-top: 150px;
         .title {
             text-align: center;
         }
-        .intro {
+        .info {
             font-size: small;
             color: #808080;
         }
@@ -73,6 +73,7 @@
             display: flex;
             justify-content: space-evenly ;
             margin-bottom: 150px;
+            margin-top: 70px;
             .card {
                 width: calc(90% / 4);
                 h3 {

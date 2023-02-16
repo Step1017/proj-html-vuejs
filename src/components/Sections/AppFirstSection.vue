@@ -20,7 +20,7 @@ export default {
                     <div class="author">
                         Fannie Moreno
                     </div>
-                    <div class="mansion">
+                    <div class="job-description">
                         /Founder & CEO
                     </div>
                 </div>               
@@ -64,8 +64,7 @@ export default {
 </template>
 <style lang="scss" scoped>
     .main-container {  
-        height: 500px;
-        margin-top: 200px;
+        margin-top: 250px;
         .p-container{            
             height: 80%;
             display: flex;
@@ -82,7 +81,7 @@ export default {
                 .author {
                     padding-top: 50px;
                 }
-                .mansion{
+                .job-description{
                     color: #a9a9a9;
                     font-size: small;
                 }
@@ -93,6 +92,7 @@ export default {
             margin: 0 auto;
             height: 20%;
             display: flex;
+            margin-top: 130px;
             .number-section {
                 width: 25%;
                 height: 100%;

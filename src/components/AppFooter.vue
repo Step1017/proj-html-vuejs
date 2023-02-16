@@ -84,6 +84,7 @@
         margin: 0 auto;
         display: flex;
         justify-content: space-between;
+        margin-top: 70px;
         .info {
             line-height: 2;
             .icons {

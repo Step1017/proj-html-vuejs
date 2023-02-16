@@ -48,6 +48,7 @@ export default {
         width: 80%;
         margin: 0 auto;
         text-align: center;
+        margin-top: 80px;
         h2 {
             font-size: 40px;
             span {
