@@ -3,15 +3,84 @@ export default {
     name: "AppFirstSection",
     data() {
         return {
-            
+            scroll: false,
+            numberOne: 0,
+            numberOneStatic: "1.926",
+            numberTwo: 0,
+            numberTwoStatic: "3.092",
+            numberThree: 0,
+            numberThreeStatic: "200",
+            numberFour: 0,
+            numberFourStatic: "100",
+            interval: 0,
         }
+    },
+    methods: {
+        activescroll() {
+            this.scroll = true
+        },
+        updateTimer() {
+            if(this.scroll) {
+                clearInterval(this.interval)
+                this.interval = setInterval(() => {
+                    if(this.numberOne < 100){
+                        this.numberOne = this.numberOne + 1
+                        this.numberTwo = this.numberTwo + 1
+                        this.numberThree = this.numberThree + 1
+                        this.numberFour = this.numberFour + 1
+                    }
+                }, 13)
+            }
     }
+    },
+    computed: {
+        myCount() {
+            let self = this;
+                this.updateTimer()
+                if(this.numberOne < 100){
+                    return this.numberOne
+                }
+                else {
+                    return this.numberOneStatic
+                }
+        },
+        myCountTwo() {
+            let self = this;
+                this.updateTimer()
+                if(this.numberTwo < 100){
+                    return this.numberTwo
+                }
+                else {
+                    return this.numberTwoStatic
+                }
+        },
+        myCountThree() {
+            let self = this;
+                this.updateTimer()
+                if(this.numberThree < 100){
+                    return this.numberThree
+                }
+                else {
+                    return this.numberThreeStatic
+                }
+        },
+        myCountFour() {
+        let self = this;
+                this.updateTimer()
+                if(this.numberFour < 100){
+                    return this.numberFour
+                }
+                else {
+                    return this.numberFourStatic
+                }
+        }
+    },
 }
 </script>
 
 <template>
     <section>
-        <div class="main-container">
+        <div @mouseover="activescroll" :class="(this.scroll) ? 'main-container mouse-over' : 'main-container'">
             <div class="p-container">                
                 <div class="main-p">
                     <p>
@@ -28,7 +97,7 @@ export default {
             <div class="number-container">
                 <div class="number-section">
                     <div class="number">
-                        1.926
+                        {{ myCount }}
                     </div>
                     <div class="details">
                         FINISHED SESSIONS
@@ -36,7 +105,7 @@ export default {
                 </div>
                 <div class="number-section">
                     <div class="number">
-                    3.092+
+                        {{ myCountTwo }}
                     </div>
                     <div class="details">
                         ENROLLED LEARNERS
@@ -44,7 +113,7 @@ export default {
                 </div>
                 <div class="number-section">
                     <div class="number">
-                        200
+                        {{ myCountThree }}
                     </div>
                     <div class="details">
                         ONLINE INSTRUCTORS
@@ -52,7 +121,7 @@ export default {
                 </div>
                 <div class="number-section">
                     <div class="number">
-                        100%
+                        {{ myCountFour }}
                     </div>
                     <div class="details">
                         SATISFACTION RATE
@@ -63,8 +132,19 @@ export default {
     </section>
 </template>
 <style lang="scss" scoped>
+@use '../styles/partials/variables' as *;
+
+    .main-container.mouse-over {
+            transition: all 2s;
+            opacity: 1;
+            top: 0px;
+        }
     .main-container {  
         margin-top: 250px;
+        padding-bottom: 50px;
+        opacity: 0;
+        position: relative;
+        top: 50px;
         .p-container{            
             height: 80%;
             display: flex;
@@ -82,7 +162,7 @@ export default {
                     padding-top: 50px;
                 }
                 .job-description{
-                    color: #a9a9a9;
+                    color: $secondary-text;
                     font-size: small;
                 }
             }
@@ -101,13 +181,13 @@ export default {
                 align-items: center;
                 justify-content: center;
                 .number {
-                    color: #26dd97;
+                    color: $extra-color;
                     font-size: xx-large;
                     font-weight: bold;
                 }
                 .details {
                     font-size: x-small;
-                    color: rgb(53, 53, 53);
+                    color: $secondary-text;
                     margin-top: 10px;
                 }
             }

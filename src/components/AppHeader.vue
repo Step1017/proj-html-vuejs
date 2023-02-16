@@ -27,7 +27,6 @@ export default {
                 "Photography",
                 "Personal Finance",
                 "Sales Coaching",
-                "Mental Therapy"
             ]
         },
         {
@@ -106,24 +105,24 @@ export default {
     <div class="header-container">
         <div class="row">
             <div class="logo">
-                <img src="../public/images/light-logo.png" alt="MaxCoachLogo">
+                <img src="/public/images/light-logo.png" alt="MaxCoachLogo">
             </div>
             <div class="navbar">
                 <ul class="nav-list">
                     <li v-for="(name, index) in this.HeaderList" class="nav-item">                        
                         <div class="option">
-                            <a :href="name.url">{{ name.title }} V</a>
+                            <a :href="name.url" target="_blank">{{ name.title }} <font-awesome-icon icon="fa-solid fa-chevron-down" /></a>
                         </div>                    
                         <ul :class="(name.List.length > 15) ? 'split-ul-15' : (name.List.length > 7) ? 'split-ul-10' : ''">
                             <li v-for="(item, num) in name.List" :class="(name.List.length > 7) ? 'split-li-15' : ''">{{ item }}</li>
                         </ul>
                     </li>
-                    <div class="icon">I-Carr</div>
-                    <div class="icon">I-Usr</div>
+                    <div class="icon"><font-awesome-icon icon="fa-solid fa-cart-shopping" /></div>
+                    <div class="icon"><font-awesome-icon icon="fa-solid fa-user-circle" /></div>
                 </ul>
             </div>
             <div class="searchbar">
-                <input type="search" name="" id="">
+                <input type="search" name="" id="pad" placeholder="Search...">
             </div>
         </div>
     </div>
@@ -131,9 +130,17 @@ export default {
 </template>
 
 <style lang="scss" scoped>
+    @use './styles/partials/variables' as *;
+    #pad {
+    padding: 5px 10px;
+    }
+    .logo {
+        img{
+            width: 50%;
+        }
+    }
     .header-container {
-        background-color: #3f3a64;
-        height: 50px;
+        background-color: $bkg-header;
     }
     .row {
         height: 100%;
@@ -142,7 +149,7 @@ export default {
         display: flex;
         justify-content: space-between;
         align-items: center;
-        color: white;
+        color: $bkg-main-primary;
 
         .navbar {
             width: 70%;
@@ -152,26 +159,42 @@ export default {
                 list-style-type: none;
                 .nav-item {
                     position: relative;
+                    padding-bottom: 10px;
+                    border-bottom: 3px solid transparent;
+                    i {
+                        scale: 0.7;
+                    }
                         a {
                         text-decoration: none;
-                        color: white;
+                        color: $bkg-main-primary;
+                            &:hover{
+                            border-bottom: 2px solid $bkg-main-primary;
+                            border-radius: 2px;
+                            }
                         }
-                    &:hover ul {
-                        top: 20px;
+
+                        &:hover ul {
+                        top: 40px;
+                        visibility: visible;
                         opacity: 1;
-                    }
+                        border: 1px solid $bkg-main-secondary;
+                        box-shadow: 0px 0px 30px 5px rgba(114, 114, 114, 0.384);
+                        }
+                        ul {
+                            padding: 15px;
+                        }
                 }
                 .split-ul-15 {
-                    width: 450px;
-                    height: 350px;
+                    width: 650px;
+                    height: 300px;
                     display: flex;
                     flex-direction: column;
                     flex-wrap: wrap;
                     right: -150%;
                 }
                 .split-ul-10{
-                    width: 450px;
-                    height: 200px;
+                    width: 650px;
+                    height: 300px;
                     display: flex;
                     flex-direction: column;
                     flex-wrap: wrap;
@@ -182,12 +205,12 @@ export default {
                     list-style-type: none;
                     position: absolute;
                     right: -25%;
-                    top: 30px;
-                    color: #000000;
+                    top: 60px;
+                    color: $primary-text;
+                    visibility: hidden;
                     opacity: 0;
                     transition: all 0.5s;
-                    z-index: 2;
-                    background-color: #ffffff;
+                    background-color: $bkg-main-secondary;
                     border-radius: 15px;
                     .split-li-15 {
                         width: 150px;

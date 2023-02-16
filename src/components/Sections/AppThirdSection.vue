@@ -3,6 +3,7 @@ export default {
     name: "AppThirdSection",
     data() {
         return {
+            scroll: false,
             cards: [
                 {
                     img: "course-02-480x298.jpg",
@@ -54,13 +55,19 @@ export default {
                 }
             ]
         }
-    }
+    },
+
+    methods: {
+        activescroll(){
+            this.scroll = true
+        }
+    },
 }
 </script>
 
 <template>
     <section>
-        <div class="main-container">
+        <div @mouseover="activescroll" :class="(this.scroll) ? 'main-container mouse-over' : 'main-container'">
             <div class="intro">
                 CHOOSE A COURSE TO GET STARTED
             </div>
@@ -82,53 +89,63 @@ export default {
                         </div>
                         <div class="statistics">
                             <div class="lessons">
-                                icon {{ card.lessonsNumber }} Lessons
+                                <font-awesome-icon icon="fa-regular fa-file-lines"/> {{ card.lessonsNumber }} Lessons
                             </div>
                             <div class="students">
-                                icon {{ card.studentsNumber }} Students
+                                <font-awesome-icon icon="fa-regular fa-user"/> {{ card.studentsNumber }} Students
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-            <button>View all courses</button>
+            <button>View all courses <font-awesome-icon icon="fa-solid fa-arrow-right"/></button>
         </div>
     </section>
 </template>
 
 <style lang="scss" scoped>
-    .main-container {
+@use '../styles/partials/mixins' as *;
+@use '../styles/partials/variables' as *;
+    .main-container.mouse-over {
+        transition: all 2s;
+        opacity: 1;
+        top: 0px;
+    }
+
+    .main-container{
         text-align: center;
-        margin-top: 100px;
+        background-color: $bkg-main-secondary;
+        padding-top: 50px;
+        opacity: 0;
+        position: relative;
+        top: 50px;
     }
     .intro {
         font-size: small;
-        color: rgb(139, 139, 139);
+        color: $secondary-text;
         margin-bottom: 20px;
     }
     h2 {
         font-size: 40px;
         margin-bottom: 50px;
-        span{
+        span {
             font-weight: lighter;
-            color: rgb(52, 224, 167);
+            color: $extra-color;
         }
     }
     button {
         margin-top: 40px;
         margin-bottom: 50px;
-        padding: 15px 30px;
-        color: white;
-        font-weight: bold;
-        background-color: rgb(74, 209, 157);
-        border: none;
-        border-radius: 10px;
+        @include my-button;
+            &:hover {
+            @include my-hover-button-2
+            }
     }
     .cards {
         display: flex;
         flex-direction: column;
         flex-wrap: wrap;
-        height: 600px;
+        height: 700px;
         width: 60%;
         margin: 0 auto;
         text-align: start;
@@ -136,8 +153,16 @@ export default {
             display: flex;
             height: 180px;
             margin-bottom: 20px;
+            margin: 20px;
+            padding: 10px;
+            transition: all 0.25s;
+            border-radius: 10px;
+                &:hover{
+                    background-color: $bkg-main-primary;
+                    box-shadow: 0px 0px 30px 5px rgba(114, 114, 114, 0.384);
+                }
             img {
-                width: 180px;
+                width: 160px;
                 aspect-ratio: 1 / 1;
                 object-fit: cover;
                 border-radius: 100%;
@@ -150,7 +175,7 @@ export default {
                 .cost {
                     font-size: large;
                     font-weight: bold;
-                    color: #34e0a7;
+                    color: $extra-color;
                     margin-bottom: 15px;
                     span{
                         font-size: small;
@@ -164,7 +189,7 @@ export default {
                 .statistics {
                     display: flex;
                     margin-top: 30px;
-                    color: #8b8b8b;
+                    color: $secondary-text;
                     .lessons {
                         margin-right: 40px;
                     }

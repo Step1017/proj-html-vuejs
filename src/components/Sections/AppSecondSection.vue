@@ -3,6 +3,7 @@
         name: "AppSecondSection",
         data() {
             return {
+                scroll: false,
                 cards: [
                     {
                         title: "Graphic Design",
@@ -32,12 +33,18 @@
                     "Get the desired certificate delivered at house"
                 ]
             }
-        }
+        },
+
+        methods: {
+            activescroll(){
+                this.scroll = true
+            }
+        },
     }
 </script>
 <template>
     <section>
-        <div class="main-container">
+        <div @mouseover="activescroll" :class="(this.scroll) ? 'main-container mouse-over' : 'main-container'">
             <div class="cards-container">
                 <div v-for="(card, index) in cards" :class="(index > 1) ? 'cards down' : 'cards'">
                     <div :class="(index == 1) ? 'card reverse' : (index == 3) ? 'card reverse' : 'card'">
@@ -55,7 +62,7 @@
                 </div>
                 <h2>Services We <span>Can Provide</span> For My Clients.</h2>
                 <div class="check" v-for="(item, num) in Check">
-                    V {{ item }}
+                    <font-awesome-icon icon="fa-solid fa-check"/> {{ item }}
                 </div>
                 <button>
                     Get started for free
@@ -65,12 +72,22 @@
     </section>
 </template>
 <style lang="scss" scoped>
+@use '../styles/partials/mixins' as *;
+@use '../styles/partials/variables' as *;
+    .main-container.mouse-over {
+        transition: all 2s;
+        opacity: 1;
+        top: 0px;
+    }
     .main-container {
         width: 80%;
         margin: 0 auto;
         display: flex;
         justify-content: space-around;
         margin-top: 100px;
+        opacity: 0;
+        position: relative;
+        top: 50px;
         .cards-container {
             width: 50%;
             display: flex;
@@ -99,7 +116,7 @@
                         margin: 20px;
                         font-size:large;
                         line-height: 1.5;
-                        color: #353535;
+                        color: $secondary-text;
                     }
                     img {
                         width: 200px;
@@ -126,21 +143,22 @@
                 font-size: 35px;
                 margin-bottom: 40px;
                 span {
-                    color: #34e0a7;
+                    color: $extra-color;
                     font-weight: lighter;
                 }
             }
             .check {
                 line-height: 2;
+                i {
+                    color: $extra-color;
+                }
             }
             button {
                 margin-top: 30px;
-                padding: 15px 30px;
-                color: #ffffff;
-                font-weight: bold;
-                background-color: #4ad19d;
-                border: none;
-                border-radius: 10px;
+                @include my-button;
+                &:hover {
+                    @include my-hover-button-2;
+                }
             }
             
         }

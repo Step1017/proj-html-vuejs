@@ -38,9 +38,11 @@ export default {
 </template>
 
 <style lang="scss" scoped>
+@use './styles/partials/mixins' as *;
+@use './styles/partials/variables' as *;
     .jumbo-container {        
-        background-color: #3f3a64;
-        color: #ffffff;
+        background-color: $bkg-header;
+        color: $bkg-main-primary;
         .jumbotron {
             display: flex;
             flex-direction: column;
@@ -61,8 +63,12 @@ export default {
                 background-color: rgb(74, 209, 157);
                 border: none;
                 border-radius: 10px;
+                @include my-button;
                 box-shadow: 0px 0px 30px 5px rgba(63, 63, 63, 0.911);
-            }
+                &:hover{
+                    @include my-hover-button-1;
+                }
+                }
             .waves-container {  
                 width: 100%;
                 background-image: url(/public/images/jumbotron-background-wave-big.svg), url(/public/images/jumbotron-background-wave-bmediumig.svg), url(/public/images/jumbotron-background-wave-small.svg);
